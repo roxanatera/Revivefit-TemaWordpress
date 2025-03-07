@@ -1,0 +1,251 @@
+/*
+    Theme Name: ReviveFit
+    Theme URI: 
+    Author: Julia R Natera Chavez
+    Author URI: 
+    Description: Theme Diseñado para el Gimnasio Gym Fit
+    Version: 1.0
+    License: GNU General Public License v2 or later
+    License URI: http://www.gnu.org/licenses/gpl-2.0.html
+    Tags: Gym, gimnasio, flexbox, css grid, mobile first
+    Text Domain: gymfit
+*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap'); 
+
+:root{
+    /**fuentes**/
+    --font-primary: 'Roboto', sans-serif;
+    --font-headings: 'Montserrat', sans-serif;
+
+    /* Colores principales */
+    --color-primary: #E72848; 
+    --color-secondary: #000000; 
+
+    /* Colores secundarios */
+    --color-dark-gray: #2C3E50; 
+    --color-white: #FFFFFF; 
+
+    /* Color de acentuación */
+    --color-accent: #F1C40F; 
+}
+
+
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; /* 1rem = 10px */
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+body{
+    font-family: var(--font-primary);
+    font-size: 18px;
+    font-size: 1.8rem;
+    line-height: 2;
+    
+}
+
+/**Estilos de los Headings**/
+h1, h2, h3, h4 {
+    font-family: var(--font-headings);
+    margin: 0 0 5rem 0;
+   line-height: 1.2;
+}
+h1{
+    font-size: 6rem;
+}
+h2{
+    font-size: 4.8rem;
+}
+h3{
+    font-size: 3.6rem;
+}
+h4{
+    font-size: 2.4rem;
+}
+
+/**Estilos Globales**/
+hr {
+    border:1px solid var(--color-dark-gray);
+}
+
+p{
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+    
+}
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+.imagen-destacada{
+    margin-bottom: 3rem;
+}
+.contenedor{
+    width: min(95%, 120rem);
+    margin:0 auto;
+}
+.contenido-centrado {
+    width: min(95%, 80rem);
+}
+
+/**Utils*/
+.text-center{
+    text-align: center;
+}
+.text-primary{
+    color: var(--color-primary);
+}
+.text-color-white{
+    color: var(--color-white);
+}
+.seccion{
+    padding: 5rem 0;
+}
+
+/**Header**/
+.header{
+    background-color: var(--color-dark-gray); 
+    padding: 2rem 0;
+    
+}
+.barra-navegacion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+@media (min-width: 768px){
+    .barra-navegacion{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+/* .menu-principal {
+    display: none;
+    
+}*/
+
+@media (min-width: 768px){
+    .menu-principal {
+        display: block;
+    }
+    .menu-principal .menu {
+        display: flex;
+    }
+}
+.menu-principal .menu a{
+    font-family: var(--font-headings);
+    color: var(--color-white);
+    display: block;
+    text-align: center;
+    padding: .5rem 2rem;
+    font-size: 1.8rem;
+}
+
+@media (min-width: 768px){
+    .menu-principal .menu a{
+        position: relative;
+        z-index: 1;
+        /*padding: 0.5rem 1rem;*/
+    }
+    .menu-principal .current_page_item{
+        border-bottom: 3px solid var(--color-primary);
+    }
+
+    .menu-principal a::before, 
+    .menu-principal a::after {
+    position: absolute;
+    left: 0;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 50%;
+    background-color: var(--color-primary);
+    z-index: -1;
+    transform: scaleX(0);
+    transition: transform .6s;
+    }
+    .menu-principal a::before {
+        top: 0;
+        transform-origin: left;
+    }
+    .menu-principal a::after {
+        top:50%;
+        transform-origin: right;
+    }
+    .menu-principal a:hover::before {
+        transform: scaleX(1);
+    }
+    .menu-principal a:hover::after {
+        transform: scaleX(1);
+    }
+}
+
+/* Tamaño para pantallas grandes */
+.logo img {
+    width: 250px;
+    border: 2px solid var(--color-primary);
+
+}
+
+/* Tamaño para tablets */
+@media (max-width: 768px) {
+    .logo img {
+        width: 120px;
+    }
+}
+
+/* Tamaño para móviles */
+@media (max-width: 480px) {
+    .logo img {
+        width: 100px;
+    }
+}
+
+/**Footer**/
+.contenido-footer{
+    padding: 4rem 0;
+}
+@media (min-width: 768px){
+    .contenido-footer{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+.footer .menu-principal a {
+    color: var(--color-secondary);
+    font-size: 1.8rem;
+    padding: 0 1rem;
+    text-align: center;
+}
+.footer .menu-principal a::before, 
+.footer  .menu-principal a::after {
+    display: none;
+}
+
+.copyright{
+    text-align: center;
+    font-family: var(--font-headings);
+    font-size: 1.2rem;
+    margin: 2rem 0 0 0;
+}
+@media (min-width: 768px){
+    .copyright {
+       font-size: 1.8rem;
+       margin: 0;
+    }
+}
