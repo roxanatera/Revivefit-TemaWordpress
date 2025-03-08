@@ -1,5 +1,6 @@
 <?php
-
+//Includes
+require get_template_directory() . '/includes/widgets.php';
 function revivefit_setup() {
     // Habilitar imágenes destacadas
     add_theme_support('post-thumbnails');
