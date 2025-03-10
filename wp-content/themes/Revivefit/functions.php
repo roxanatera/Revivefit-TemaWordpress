@@ -16,15 +16,19 @@ function revivefit_menus() {
         'menu-principal' => __('Menu Principal', 'revivefit')
     ));
 }
-
-
 add_action('init', 'revivefit_menus');
+
+// Clases personalizadas
+
 
 function revivefit_styles() {
 
     wp_enqueue_style('normalize','https://necolas.github.io/normalize.css/8.0.1/normalize.css', array(), '8.0.1');
     wp_enqueue_style('style', get_stylesheet_uri(), array('normalize'), '1.0.0');
+    wp_enqueue_style('lightboxcss', get_template_directory_uri() . '/css/lightbox.min.css', array(), '2.11.4');
 
+    //Registrar Js
+    wp_register_script('lightboxjs', get_template_directory_uri() . '/js/lightbox.min.js', array('jquery'), '2.11.4', true);
     // Registrar scripts
     wp_register_script('scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0', true);
 
@@ -35,7 +39,8 @@ function revivefit_styles() {
 
 add_action('wp_enqueue_scripts', 'revivefit_styles');
 
-// Definir zona de widgets
+
+// Registrar áreas de widgets
 function revivefit_widgets() {
     register_sidebar(array(
         'name' => 'Sidebar 1',
@@ -54,6 +59,11 @@ function revivefit_widgets() {
         'before_title' => '<h3 class="text-center text-primary">',
         'after_title' => '</h3>'
     ));
-    
 }
 add_action('widgets_init', 'revivefit_widgets');
+
+// Registrar el widget
+function revivefit_registrar_widget() {
+    register_widget('revivefit_Clases_Widget');
+}
+add_action('widgets_init', 'revivefit_registrar_widget');

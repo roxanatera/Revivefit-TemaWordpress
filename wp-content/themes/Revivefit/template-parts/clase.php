@@ -6,7 +6,8 @@
         }
        
             $hora_inicio = get_field('hora_inicio');
-                $hora_fin = get_field('hora_fin');
+            $hora_fin = get_field('hora_fin');
+
             ?>
             <p class="informacion-clase">
                 <?php the_field('dias_de_clases'); ?> -

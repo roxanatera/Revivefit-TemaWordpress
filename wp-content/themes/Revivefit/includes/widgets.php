@@ -14,26 +14,19 @@ class revivefit_Clases_Widget extends WP_Widget {
 
     public function widget($args, $instance) {
         ?>
-        <ul class="clases-sidebar">
-            <?php
-            
+    <ul class="clases-sidebar">
+        <?php
             $args = array(
                 'post_type' => 'revivefit_clases',
-                'posts_per_page' => $instance['cantidad']
+                'posts_per_page' => $instance['cantidad'],
             );
             $clases = new WP_Query($args);
             while ($clases->have_posts()) {
                 $clases->the_post();
-                ?>
+        ?>
                 <li>
                     <div class="imagen">
-                        <?php
-                        if (has_post_thumbnail()) {
-                            the_post_thumbnail('medium');
-                        } else {
-                            echo '<p>No hay imagen disponible</p>'; // Mensaje si no hay imagen
-                        }
-                        ?>
+                        <?php the_post_thumbnail('thumbnail');?>
                     </div>
                     <div class="contenido-clase">
                         <a href="<?php the_permalink(); ?>">
@@ -47,16 +40,15 @@ class revivefit_Clases_Widget extends WP_Widget {
                             <?php the_field('dias_de_clases'); ?> -
                             <?php echo $hora_inicio . " a " . $hora_fin; ?>
                         </p>
-                </li>
-                <?php
-            }
-            wp_reset_postdata(); // Restablece la consulta original
-            ?>
-        </ul>
+                    </div> 
+                </li> 
         <?php
-
-        echo $args['after_widget']; // Cierra el contenedor HTML del widget
-    }
+            }
+            wp_reset_postdata(); 
+        ?>
+    </ul>
+        <?php
+}
 
     public function form($instance) {
         $cantidad = !empty($instance['cantidad']) ? $instance['cantidad'] : esc_html('¿Cuántas Clases deseas mostrar?');
@@ -76,12 +68,9 @@ class revivefit_Clases_Widget extends WP_Widget {
 
     public function update($new_instance, $old_instance) {
         $instance = array();
-        $instance['cantidad'] = (!empty($new_instance['cantidad'])) ? sanitize_text_field($new_instance['cantidad']) : '';
+        $instance['cantidad'] = (!empty($new_instance['cantidad'])) ? sanitize_text_field($new_instance
+        ['cantidad']) : '';
         return $instance;
     }
 }
 
-function revivefit_registrar_widget() {
-    register_widget('revivefit_Clases_Widget');
-}
-add_action('widgets_init', 'revivefit_registrar_widget');

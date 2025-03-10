@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-
+<h1>Desde Index.php</h1>
     <main>
         <?php
             while(have_posts() ): the_post(); 
