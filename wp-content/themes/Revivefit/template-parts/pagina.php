@@ -4,6 +4,7 @@
         if(has_post_thumbnail() ){
             the_post_thumbnail('full', array('class' => 'imagen-destacada'));
         }
+       
         the_content();
 
         endwhile;

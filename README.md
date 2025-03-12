@@ -18,6 +18,8 @@ Este es un tema personalizado de WordPress desarrollado para el gimnasio **Reviv
 - **`js/scripts.js`**: Archivo JavaScript para funcionalidades adicionales.
 - **`img/logo.png`**: Logo del gimnasio.
 
+![Logo de ReviveFit](img/logo.png)
+
 ## Configuración
 
 ### 1. Habilitar imágenes destacadas
