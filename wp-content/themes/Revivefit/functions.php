@@ -32,15 +32,18 @@ function revivefit_styles() {
     // Registrar scripts
     wp_register_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), '11.2.5', true);
     wp_register_script('anime', 'https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js', array(), '2.0.2', true);
-    wp_register_script('scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery', 'swiper-js', 'anime'), '1.0.0', true);
+    wp_register_script('anime2', 'https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js', array(), '2.0.2', true);
+    wp_register_script('scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery', 'swiper-js', 'anime', 'anime2'), '1.0.0', true);
 
     // Encolar scripts
     wp_enqueue_script('jquery');
     wp_enqueue_script('swiper-js');
     wp_enqueue_script('anime');
+    wp_enqueue_script('anime2');
     wp_enqueue_script('scripts');
 }
 add_action('wp_enqueue_scripts', 'revivefit_styles');
+
 
 
 // Registrar áreas de widgets

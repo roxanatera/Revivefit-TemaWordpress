@@ -58,13 +58,13 @@ h1, h2, h3, h4 {
    line-height: 1.2;
 }
 h1{
-    font-size: 6rem;
+    font-size: 5rem;
 }
 h2{
-    font-size: 4.8rem;
+    font-size: 4.5rem;
 }
 h3{
-    font-size: 3.6rem;
+    font-size: 3.2rem;
 }
 h4{
     font-size: 2.4rem;
@@ -118,6 +118,28 @@ img{
 .seccion{
     padding: 5rem 0;
 }
+/**Btones**/
+.form-submit .submit,
+.boton{
+    background-color: var(--color-white);
+    color: var(--color-secondary);
+    padding: 1rem 3rem;
+    display: block;
+    flex: 1;
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: .5rem;
+    margin: 1rem 0;
+}
+@media (min-width: 768px){
+    .boton{
+        display: inline-block;
+        flex: 0 0 auto;
+        width: auto;
+    }
+}
 
 /**Header**/
 .header{
@@ -163,11 +185,62 @@ body.home .header{
         justify-content: space-between;
     }
 }
+@media (min-width: 992px){
+    .fixed-top{
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        background-color: var(--color-dark-gray);
+        padding: 1rem 5rem;
+        height: 10rem;
+        transition: background-color .3s ease-in-out;
+
+    }
+    .fixed-top .logo{
+        width: 10rem;
+    }
+}
 /* .menu-principal {
     display: none;
     
 }*/
 
+.hamburguer-menu:hover{
+    cursor: pointer;
+
+
+}
+@media (min-width: 768px){
+    .hamburguer-menu{
+        display: none;
+        color: white;
+        
+        
+    }
+}
+.contenedor-menu{
+    opacity: 0;
+    max-height: 0;
+    transition-delay:100ms, 300ms;
+    transition-property: opacity, max-height;
+    transition-timing-function: ease-in-out;
+    transition-duration: 300ms;
+}
+@media (min-width: 768px){
+    .contenedor-menu{
+        all:unset;
+    }
+}
+.mostrar{
+    opacity: 1;
+    max-height: 35rem;
+    transition-delay:100ms, 300ms;
+    transition-property: max-height, opacity; 
+    transition-timing-function: ease-in-out;
+    transition-duration: 300ms;
+}
 @media (min-width: 768px){
     .menu-principal {
         display: block;
@@ -228,6 +301,7 @@ body.home .header{
 .logo img {
     width: 150px;
     border: 2px solid var(--color-primary);
+    margin-bottom: 1.5rem;
 
 }
 
@@ -475,6 +549,10 @@ body.home .header{
     display: flex;
     gap: .5rem;
 }
+.meta-info .post-categories{
+    display:flex;
+    gap:1rem;
+}
 
 /**Formulario de Contacto**/
 .wpcf7-form label{
@@ -583,6 +661,7 @@ body.home .header{
 .instructor img {
     height: 400px;
     object-fit: cover;
+    border:#2C3E50 2px solid;
 }
 .instructor .contenido {
     padding: 2rem;
@@ -656,4 +735,99 @@ body.home .header{
 .ml2 .letter {
   display: inline-block;
   line-height: 1em;
+}
+
+
+  .ml2 {
+    font-weight: 900;
+    font-size: 3.5em;
+  }
+  
+  .ml2 .letter {
+    display: inline-block;
+    line-height: 1em;
+  }
+ 
+@media (min-width: 768px) {
+    .ml2 {
+      font-size: 2.5em; 
+    }
+  }
+  
+
+/**Comentarios**/
+.comentarios{
+    width: min(95%, 60rem);
+    margin: 5rem auto 0 auto;
+}
+.comment-reply-title{
+    color: var(--color-primary);
+    font-size: 2.4rem;
+    text-align: center;
+}
+.logged-in-as a{
+    color: var(--color-primary);
+}
+.comment-form-comment label{
+    font-weight: 700;
+    margin: 2rem 0;
+    display: block;
+}
+
+.form-submit .submit{
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    width: auto;
+    font-size: 1.5rem;
+}
+.comment-form-comment textarea,
+.comentarios input[type="text"]{
+    border: 1px solid var(--color-dark-gray);
+    width: 100%;
+    padding: 1rem;
+    
+}
+.comentarios input[type="text"]{
+    margin: .5rem 0;
+}
+h3.comentarios{
+    margin: 5rem 0;
+}
+.lista-comentarios .comment{
+    background-color: var(--color-gris-claro);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: .5rem;
+}
+.lista-comentarios a{
+    color: var(--color-primary);
+}
+.lista-comentarios cite{
+    color: var(--color-primary);
+    font-size: 2rem;
+    font-weight: 700;
+}
+.lista-comentarios .children .comment{
+    background-color: var(--color-white);
+    margin: 1rem 0;
+}
+/**Paginación**/
+.pagination .screen-reader-text{
+    visibility: hidden;
+}
+.nav-links{
+    display:flex;
+    justify-content: center;
+    gap: .6rem;
+}
+.nav-links a{
+font-size: 1.4rem;
+color: var(--color-primary);
+font-weight: 700;
+padding: .5rem;
+}
+.nav-links .current {
+    font-size: 1.4rem;
+    padding: .5rem;
+    
 }

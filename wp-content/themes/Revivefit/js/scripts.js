@@ -29,5 +29,25 @@ anime.timeline({loop: true})
     easing: "easeOutExpo",
     delay: 1000
   });
+
+  const hamburguer = document.querySelector('.hamburguer-menu svg');
+  hamburguer.addEventListener('click', () => {
+    const menuPrincipal = document.querySelector('.contenedor-menu');
+    menuPrincipal.classList.toggle('mostrar');
+  });
+ 
 }
 document.addEventListener('DOMContentLoaded', fitWordpress);
+
+window.onscroll = function() {
+  const scroll = window.scrollY;
+
+  const barraNav = document.querySelector('.barra-navegacion');
+  if (scroll > 300) {
+    barraNav.classList.add('fixed-top');
+  } else {
+   barraNav.classList.remove('fixed-top');
+  }
+
+  
+};

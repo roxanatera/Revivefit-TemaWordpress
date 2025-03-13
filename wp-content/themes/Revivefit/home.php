@@ -11,5 +11,9 @@
 
         ?>
         </ul>
+        <?php 
+            the_posts_pagination();
+        
+        ?>
     </main>
     <?php get_footer(); ?>
