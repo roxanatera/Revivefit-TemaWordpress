@@ -5,42 +5,57 @@
     <p><?php the_field('texto_bienvenida'); ?></p>
 </section>
 
-<div cass="seccion-areas">
-    <ul class="contenedor-areas">
-        <li class="area">
+<section class="areas">
+        <div class="area">
             <?php 
                 $area1 = get_field('area1');
-                $imagen = wp_get_attachment_image_src($area1['area_imagen'], 'mediano')[0];
+                $imagen = $area1 ['imagen']['sizes']['medium_large'];
+                $texto = $area1['texto'];
+            
             ?>
-            <img src="<?php echo esc_attr($imagen); ?>" />
-            <p><?php echo esc_html( $area1['area_texto'] ); ?>
-        </li>
-        <li class="area">
+            <img src="<?php echo esc_attr($imagen );?>" alt="area1['$texto'] " />
+            <p><?php echo esc_html( $texto); ?></p>
+        </div>
+        <div class="area">
             <?php 
-                $area2 = get_field('area_2');
-                $imagen = wp_get_attachment_image_src($area2['area_imagen'], 'mediano')[0];
+                $area_2 = get_field('area_2');
+                $imagen = $area_2 ['imagen_2']['sizes']['medium_large'];
+                $texto = $area_2['texto'];
+            
             ?>
-            <img src="<?php echo esc_attr($imagen); ?>" />
-            <p><?php echo esc_html( $area2['area_texto'] ); ?>
-        </li>
-        <li class="area">
+            <img src="<?php echo esc_attr($imagen );?>" alt="" />
+            <p><?php echo esc_html( $texto); ?></p>
+        </div>
+        <div class="area">
             <?php 
-                $area3 = get_field('area_3');
-                $imagen = wp_get_attachment_image_src($area3['area_imagen'], 'mediano')[0];
+                $area_3 = get_field('area_3');
+                $imagen = $area_3 ['imagen_3']['sizes']['medium_large'];
+                $texto = $area_3['texto'];
+            
             ?>
-            <img src="<?php echo esc_attr($imagen); ?>" />
-            <p><?php echo esc_html( $area3['area_texto'] ); ?>
-        </li>
-        <li class="area">
+            <img src="<?php echo esc_attr($imagen );?>" alt="" />
+            <p><?php echo esc_html( $texto); ?></p>
+        </div>
+        <div class="area">
             <?php 
-                $area4 = get_field('area_4');
-                $imagen = wp_get_attachment_image_src($area4['area_imagen'], 'mediano')[0];
+                $area_4 = get_field('area_4');
+                $imagen = $area_4 ['imagen_4']['sizes']['medium_large'];
+                $texto = $area_4['texto'];
+            
             ?>
-            <img src="<?php echo esc_attr($imagen); ?>" />
-            <p><?php echo esc_html( $area4['area_texto'] ); ?>
-        </li>
-    </ul>
-</div>
+            <img src="<?php echo esc_attr($imagen );?>" alt="" />
+            <p><?php echo esc_html( $texto); ?></p>
+        </div>
+        
+</section>
+<main class="contenedor seccion">
+    <h2 class="text-center text-primary">Nuestras Clases</h2>
+    <?php revivefit_lista_clases(4); ?>
+    <div class="contenedor-boton">
+        <a href="<?php echo esc_url(get_permalink(get_page_by_path('clases') ) ) ;?>"
+        class="boton boton-primario">Ver todas la clases</a>
+    </div>
+</main>
 
 
 <main class="contenedor seccion">
